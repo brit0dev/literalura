@@ -2,15 +2,17 @@ package br.com.alura.literalura.main;
 
 import java.util.Scanner;
 
+import br.com.alura.literalura.repository.AuthorRepository;
 import br.com.alura.literalura.repository.BookRepository;
 import br.com.alura.literalura.service.BookService;
 
 public class Main {
     private Scanner read = new Scanner(System.in);
     private BookService bookService;
+    
 
-    public Main(BookRepository bookRepository) {
-        this.bookService = new BookService(bookRepository);
+    public Main(BookRepository bookRepository, AuthorRepository authorRepository) {
+        this.bookService = new BookService(bookRepository,authorRepository);
     }
 
     public void show_menu() {
@@ -38,10 +40,10 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    System.out.println("Case 1");          
+                    bookService.getBook();                
                     break;
                 case 2:
-                    System.out.println("Case 2");          
+                    System.out.println("Case 2");
                     break;
                 case 3:
                     System.out.println("Case 3");          

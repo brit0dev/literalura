@@ -2,7 +2,6 @@ package br.com.alura.literalura.model;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +20,7 @@ public class Book {
     private List<String> languages;
     private int downloadCount;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Author author;
 
     public Book() {
@@ -31,7 +30,6 @@ public class Book {
         this.title = book.title();
         this.languages = book.languages();
         this.downloadCount = book.download_count();
-        this.author = new Author(book.authors().get(0));
     }
 
     public Author getAuthor() {
