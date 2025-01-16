@@ -2,8 +2,16 @@ package br.com.alura.literalura.main;
 
 import java.util.Scanner;
 
+import br.com.alura.literalura.repository.BookRepository;
+import br.com.alura.literalura.service.BookService;
+
 public class Main {
     private Scanner read = new Scanner(System.in);
+    private BookService bookService;
+
+    public Main(BookRepository bookRepository) {
+        this.bookService = new BookService(bookRepository);
+    }
 
     public void show_menu() {
         boolean loop = true;
