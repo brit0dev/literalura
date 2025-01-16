@@ -2,8 +2,6 @@ package br.com.alura.literalura.main;
 
 import java.util.Scanner;
 
-
-
 public class Main {
     private Scanner read = new Scanner(System.in);
 
