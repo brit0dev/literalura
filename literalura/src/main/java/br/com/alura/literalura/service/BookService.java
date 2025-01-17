@@ -1,6 +1,5 @@
 package br.com.alura.literalura.service;
 
-
 import java.util.Scanner;
 
 import br.com.alura.literalura.model.Author;
@@ -56,4 +55,11 @@ public class BookService {
         }
     }
 
+    public void listBooks(){
+        bookRepository.findAll().forEach(System.out::println);
+    }
+
+    public void listAuthors(){
+        authorRepository.findAll().forEach(System.out::println);
+    }
 }

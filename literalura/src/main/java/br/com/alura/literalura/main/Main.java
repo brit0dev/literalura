@@ -43,10 +43,10 @@ public class Main {
                     bookService.getBook();                
                     break;
                 case 2:
-                    System.out.println("Case 2");
+                    bookService.listBooks();
                     break;
                 case 3:
-                    System.out.println("Case 3");          
+                    bookService.listAuthors();          
                     break;
                 case 4:
                     System.out.println("Case 4");          
