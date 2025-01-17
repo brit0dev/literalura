@@ -2,6 +2,7 @@ package br.com.alura.literalura.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -39,8 +40,14 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author [id=" + id + ", name=" + name + ", birth_year=" + birth_year + ", death_year=" + death_year
-                + ", books=" + books + "]";
+        List<String> booksNames = books.stream().map(b-> b.getTitle()).collect(Collectors.toList());
+        return 
+        """
+        Author: %s
+        Ano de nascimento: %d
+        Ano de falecimento: %d
+        Livros: %s
+        """.formatted(this.name, this.birth_year, this.death_year, booksNames);
     }
 
     public void addBook(Book book){
