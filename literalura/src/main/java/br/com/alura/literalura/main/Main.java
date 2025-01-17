@@ -49,10 +49,10 @@ public class Main {
                     bookService.listAuthors();          
                     break;
                 case 4:
-                    System.out.println("Case 4");          
+                    bookService.listAuthorsAlive();       
                     break;
                 case 5:
-                    System.out.println("Case 5");          
+                    bookService.listBooksByLanguage();
                     break;
                 case 0:
                     System.out.println("Exiting...");

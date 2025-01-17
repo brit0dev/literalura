@@ -1,5 +1,6 @@
 package br.com.alura.literalura.service;
 
+import java.util.List;
 import java.util.Scanner;
 
 import br.com.alura.literalura.model.Author;
@@ -61,5 +62,29 @@ public class BookService {
 
     public void listAuthors(){
         authorRepository.findAll().forEach(System.out::println);
+    }
+
+    public void listAuthorsAlive(){
+        System.out.println("Digite um ano para busca: ");
+        int year = read.nextInt();
+
+        authorRepository.listAuthorsAlive(year).forEach(System.out::println);
+    }
+
+    public void listBooksByLanguage(){
+        System.out.println(
+            """
+                Insira o idioma para realizar a busca:
+                es- espanhol
+                en- inglês
+                fr- francês
+                pt- português
+            """
+            );
+        String language = read.nextLine();
+
+        //System.out.println("'"+language+"'");
+        //System.out.println(bookRepository.listBooksByLanguage(language));
+        bookRepository.findAllByLanguagesIn(List.of(language)).forEach(System.out::println);;
     }
 }
