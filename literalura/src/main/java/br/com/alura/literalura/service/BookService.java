@@ -32,8 +32,7 @@ public class BookService {
         SearchData searchResult = converter.getData(SearchData.class, json);
     
         if (searchResult.count() >= 1) {           
-                                    
-            for (BookData bookData : searchResult.results()) {
+                BookData bookData = searchResult.results().get(0);
                 Book book = new Book(bookData);
                 Author searchedAuthor = authorRepository.findByName(bookData.authors().get(0).name());
                 
@@ -49,7 +48,7 @@ public class BookService {
                 
                 System.out.println(book);
                 bookRepository.save(book);
-            }
+
 
         } else {
             System.out.println("O livro '" + bookTitle + "' não foi encontrado.");
